@@ -1,10 +1,5 @@
 
-# # # # # # # # # # #
-#                   -       
-#   Delilah Restó   -
-#                   - 
-# - - - - - - - - - -
-
+#   Delilah Restó   #
 
 `App de pedidos de comida`
 
@@ -29,11 +24,11 @@ El objetivo del proyecto es generar el back-end para una aplicación de entrega 
 - Copiar el contenido del archivo `api-docs.yaml` en [Swagger](https://editor.swagger.io/) o importarlo desde las opciones. Se listarán los endpoints y métodos disponibles, junto con la información necesaria para utilizar la API. 
 
 
-# INSTALACIÓN E INICIALIZACIÓN !!!!!!!!! VER CUANDO ORDENE Y SUBA A GIT 
+# Instalación e inicialización:
 
 # 1. Clonar el proyecto 
 
-- Clonar el repositorio desde https://github.com/ 
+- Clonar el repositorio desde https://github.com/violeta1391/Delilah_Resto---Violeta
 
 
 # 2. Instalar dependencias 
