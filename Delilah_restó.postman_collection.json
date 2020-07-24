@@ -1,0 +1,748 @@
+{
+	"info": {
+		"_postman_id": "1a55bf2a-dfec-4b11-abd5-6e70039349c9",
+		"name": "Delilah_restó",
+		"description": "Backend de app de pedidos de comida llamada Delilah Restó",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ro@gmail.com\",\r\n    \"pass\": \"ro1234\",\r\n    \"admin\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Admin ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vio.ayelen@gmail.com\",\r\n    \"pass\": \"pass123\",\r\n    \"admin\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Productos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/productos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"productos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Api Productos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"detalle\": \"Locro\",\r\n        \"precio\": 400,\r\n        \"imagen\": \"url\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/productos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"productos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Productos por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/productos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"productos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Api Productos por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/productos/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"productos",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Api Productos por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"detalle\": \"Papas\",\r\n        \"precio\": 150,\r\n        \"imagen\": \"url\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/productos/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"productos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Api Usuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"usuario\": \"usuario5\",\r\n        \"nombre_apellido\": \"Lisa\",\r\n        \"email\": \"lisa@gmail.com\",\r\n        \"telefono\": 3513298754,\r\n        \"direccion\": \"rimini 809\",\r\n        \"pass\": \"cat1234\",\r\n        \"admin\": 0        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Usuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Usuarios por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/usuarios/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Api Usuarios ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/usuarios/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"usuarios",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Api Usuarios ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"usuario\": \"usuario4\",\r\n        \"nombre_apellido\": \"panzon\",\r\n        \"email\": \"panzon@gmail.com\",\r\n        \"telefono\": 3513298754,\r\n        \"direccion\": \"rimini 809\",\r\n        \"pass\": \"cat1234\",\r\n        \"admin\": 0        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/usuarios/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Pedidos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Pedidos por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"estado\": \"Nuevo\",\r\n        \"hora\": \"2020-08-25T20:46:36.000Z\",\r\n        \"descripcion\": \"Papas\",\r\n        \"metodo_pago\": \"Tarjeta\",\r\n        \"usuarioID\": 2,\r\n        \"total\": 150\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Api Pedidos ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"estado\": \"Nuevo\",\r\n        \"hora\": \"2020-08-25T20:46:36.000Z\",\r\n        \"descripcion\": \"Papas\",\r\n        \"metodo_pago\": \"Tarjeta\",\r\n        \"usuarioID\": 3,\r\n        \"total\": 150\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Api Pedidos ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/pedidos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"pedidos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Api Pedidos ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"estado\": \"Entregado\",\r\n        \"hora\": \"2020-08-25T20:46:36.000Z\",\r\n        \"descripcion\": \"Tarta\",\r\n        \"metodo_pago\": \"Tarjeta\",\r\n        \"usuarioID\": 2,\r\n        \"total\": 400\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/pedidos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"pedidos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Detalles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/detalles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"detalles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Api Detalles por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/detalles/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"detalles",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Api Detalles ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"ID_PRODUCTO\": 3,\r\n        \"ID_PEDIDO\": 3,\r\n        \"cantidad_producto\": 1\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/detalles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"detalles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Api Detalles ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6InVzdWFyaW8xIiwibm9tYnJlX2FwZWxsaWRvIjoiVmlvbGV0YSBSb2RyaWd1ZXoiLCJlbWFpbCI6InZpby5heWVsZW5AZ21haWwuY29tIiwidGVsZWZvbm8iOjM1MTM5MDQxMjcsImRpcmVjY2lvbiI6ImFsYmVyZGkiLCJwYXNzIjoicGFzczEyMyIsImFkbWluIjoxLCJpYXQiOjE1OTU1MTUwMDh9.gqtx2obdq09S87x6ksvqL79xw_APtSQYs-mqMPhmKYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/detalles/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"detalles",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ccf66804-4657-40e0-97a4-9bb6df511573",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "31852cf8-86f3-4865-9533-74a03525a3eb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

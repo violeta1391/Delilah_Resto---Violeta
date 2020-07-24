@@ -1,0 +1,509 @@
+openapi: 3.0.2
+info:
+  title: Delilah Restó
+  description: Backend de aplicación de pedidos
+  version: 1.0.0
+servers:
+- url: https://localhost:4000/api
+paths:
+
+  /usuarios/login:          
+    post:
+      summary: LOGIN 
+      description: permite al usuario o administrador loguearse
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/login"
+        required: true
+      responses:
+        200:
+          description: Se muestran todos los usuarios
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/token"
+        403:
+          description: Email o contraseña incorrectos
+
+  /usuarios: 
+    get: 
+      summary: GET Usuarios
+      description: Obtener todos los usuarios, sólo puede hacerlo el administrador
+      responses: 
+        200:
+          description: Se muestran todos los usuarios
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/usuarios"
+        400:
+          description: No se encuentran los usuarios 
+          
+    post:
+      summary: POST Usuarios
+      description: Crear un nuevo usuario, sólo puede hacerlo en administrador 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/usuarios"
+        required: true
+      responses:
+        200: 
+          description: Se ha registrado correctamente
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/usuarios"
+        409:
+          description: Ya existe un usuario con este nombre
+        400:
+          description: Ya existe un usuario con este mail
+          
+  /usuarios/{id}: 
+    get:
+      summary: GET Usuarios ID
+      description: Obtener usuario por Id
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Se muestra el usuario 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/usuarios"
+        400:
+          description: No se encuentra el usuario
+    
+    patch:
+      summary: PATCH Usuarios 
+      description: Editar un usuario por ID, sólo puede hacerlo el administrador 
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Se modificó el producto 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/usuarios"
+        400:
+          description: No pudo realizarse la actualización del producto
+
+    delete:
+      summary: DELETE Usuarios 
+      description: Eliminar un usuario por ID, sólo puede hacerlo el administrador 
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Usuario borrado
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/productos"
+        400:
+          description: No pudo eliminarse el usuario
+
+
+  /productos: 
+    get: 
+      summary: GET Productos
+      description: Obtener todos los productos
+      responses: 
+        200:
+          description: Producto insertado
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/productos"
+        400:
+          description: No pudo registrarse el nuevo producto 
+          
+    post:
+      summary: POST Producto
+      description: Crear un nuevo producto, sólo puede hacerlo en administrador 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/productos"
+        required: true
+      responses:
+        200:
+          description: Se muestra el producto 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/productos"
+        400:
+          description: Producto no encontrado
+          
+  /productos/{id}: 
+    get:
+      summary: GET Producto ID
+      description: Obtener producto por Id
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Se muestra el producto 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/productos"
+        400:
+          description: Producto no encontrado
+    
+    patch:
+      summary: PATCH Producto 
+      description: Editar un producto por ID, sólo puede hacerlo el administrador 
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Se modificó el producto 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/productos"
+        400:
+          description: No pudo realizarse la actualización del producto
+
+    delete:
+      summary: DELETE Producto 
+      description: Eliminar un producto por ID, sólo puede hacerlo el administrador 
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Producto borrado
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/productos"
+        400:
+          description: No pudo realizarse la eliminación del producto
+
+
+
+
+
+  /pedidos: 
+    get: 
+      summary: GET Pedidos
+      description: Obtener todos los pedidos, sólo puede hacerlo el administrador
+      responses: 
+        200:
+          description: Se muestran los pedidos 
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/pedidos"
+        400:
+          description: No se encuentran los pedidos
+          
+    post:
+      summary: POST Pedidos
+      description: Crear un nuevo pedido, puede realizarlo sólo un usuario registrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/pedidos"
+        required: true
+      responses:
+        200:
+          description: Pedido agregado
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/pedidos"
+        400:
+          description: No pudo realizarse el pedido
+          
+  /pedidos/{id}: 
+    get:
+      summary: GET Pedido ID
+      description: Obtener pedido por Id, sólo puede hacerlo el administrador
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Se muestra el pedido 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/pedidos"
+        400:
+          description: No se encuentra el pedido
+    
+    patch:
+      summary: PATCH Pedido 
+      description: Editar un producto por ID, sólo puede hacerlo el administrador 
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Se modificó el pedido 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/pedidos"
+        400:
+          description: No se modifico el pedido
+
+    delete:
+      summary: DELETE Pedido 
+      description: Eliminar un pedido por ID, sólo puede hacerlo el administrador 
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Pedido borrado
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/pedidos"
+        400:
+          description: No pudo eliminarse el pedido
+
+
+# Detalles corresponde a la tabla prod_por_pedido. Sólo puede acceder el administrador
+
+  /detalles: 
+    get: 
+      summary: GET detalles
+      description: Obtener todos los detalles 
+      responses: 
+        200:
+          description: Se muestran los detalles 
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/detalles"
+        400:
+          description: No se encuentran los detalles
+          
+    post:
+      summary: POST detalles
+      description: Crear un nuevo detalle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/detalles"
+        required: true
+      responses:
+        200:
+          description: Detalle agregado
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/detalles"
+        400:
+          description: No se agregó el detalle
+          
+  /detalles/{id}: 
+    get:
+      summary: GET detalles ID
+      description: Obtener detalles por Id
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Se muestra el pedido 
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/detalles"
+        400:
+          description: No se encuentra el detalle
+
+    delete:
+      summary: DELETE detalles 
+      description: Eliminar un detalle por ID
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Detalle borrado
+          content: 
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/detalles"
+        400:
+          description: No pudo eliminarse el detalle
+
+
+components:
+  schemas:
+
+    login:
+      type: object
+      properties:
+        email:
+          type: string
+          example: vio@gmail.com
+        pass:
+          type: string
+          example: violet1234
+
+    token:
+      type: object
+      properties:
+          token:
+            type: string
+            example: asdas56f15as6f165as1f65as1f65as1f65asf165asf1a6s5f1a65sf1a65sf1a65sf1as65f1as65f
+
+
+    usuarios:
+        type: object
+        properties:
+          id:
+            type: integer
+          usuario:
+            type: string
+            example: violet
+          nombre_apellido:
+            type: string
+            example: violeta rodriguez
+          email: 
+            type: string
+            example: vio@gmail.com
+          telefono:
+            type: integer
+            example: 3519631177
+          direccion: 
+            type: string
+            example: alberdi
+          pass: 
+            type: string
+            example: vio1234
+          admin:
+            type: integer
+            example: 1
+
+    productos:
+      type: object
+      properties:
+        id:
+          type: integer
+        detalle:
+          type: string
+          example: Tarta
+        precio:
+          type: integer
+          example: 400
+        imagen: 
+          type: string
+          example: https://via.placeholder.com/150
+
+    pedidos:
+      type: object
+      properties:
+        id:
+          type: integer
+        estado:
+          type: string
+          example: Nuevo
+        hora:
+          type: string
+          format: date-time
+          example: "2020-07-10T10:22:12Z"
+        descripcion: 
+          type: string
+          example: Papas
+        metodo_pago: 
+          type: string
+          format: efectivo
+        usuarioID :
+          type: integer
+          example: 2
+        total:
+          type: integer
+          example: 150
+
+    detalles:
+      type: object
+      properties:
+        ID_PRODUCTO:
+          type: integer
+          example: 2
+        ID_PEDIDO:
+          type: integer
+          example: 3
+        cantidad_producto:
+          type: integer
+          example: 1
+
+
+
