@@ -33,7 +33,7 @@ CREATE TABLE pedidos (
     metodo_pago VARCHAR(100) NOT NULL,
     usuarioID INT NOT NULL,    
     total INT NOT NULL,
-    FOREIGN KEY(usuarioID) REFERENCES usuarios(id) --revisar si no funciona por eso 
+    FOREIGN KEY(usuarioID) REFERENCES usuarios(id) 
 );
 
 -- Productos por pedidos 
